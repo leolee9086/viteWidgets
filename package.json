@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "vue": "^3.2.45",
+    "vue3-moveable": "^0.16.0"
+  }
+}

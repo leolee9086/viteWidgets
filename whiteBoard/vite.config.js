@@ -55,9 +55,7 @@ export default defineConfig({
       cors: {
         allowedHeaders:['Content-Type', 'Authorization']
       },
-      hmr:{
-        overlay:true
-      },
+     
     },
     resolve:{alias:[]}
   })

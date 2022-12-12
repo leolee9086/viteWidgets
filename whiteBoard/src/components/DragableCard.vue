@@ -21,7 +21,7 @@ const 卡片框架元素 = ref(null)
 onMounted(async () => {
     卡片内容.value = await 当前适配器.获取卡片内容数据(思源块id)
     let 几何数据 = await 当前适配器.获取卡片几何数据(思源块id)
-    console.log(几何数据)
+    console.log(卡片内容.value)
     if (几何数据) {
         卡片框架元素.value.style.width = 几何数据.data.width
         卡片框架元素.value.style.height = 几何数据.data.height
@@ -98,6 +98,7 @@ function onResize(e) {
 .card_content {
     max-height: 100%;
     max-width: 100%;
+    height: 100%;
     overflow-y: scroll;
     overflow-x: hidden;
 }

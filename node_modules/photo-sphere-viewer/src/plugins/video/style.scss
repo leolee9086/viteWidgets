@@ -1,0 +1,200 @@
+@use 'sass:map';
+@import '../../styles/vars';
+
+$psv-progressbar-height: 3px !default;
+$psv-progressbar-height-active: 5px !default;
+$psv-progressbar-container: 20px !default;
+$psv-progressbar-progress-color: $psv-buttons-color !default;
+$psv-progressbar-buffer-color: $psv-buttons-active-background !default;
+$psv-progressbar-handle-size: 9px !default;
+$psv-progressbar-handle-color: white !default;
+
+$psv-volume-height: 80px !default;
+$psv-volume-width: $psv-progressbar-height-active !default;
+$psv-volume-bar-color: $psv-progressbar-progress-color !default;
+$psv-volume-track-color: $psv-progressbar-buffer-color !default;
+$psv-volume-handle-size: $psv-progressbar-handle-size !default;
+$psv-volume-handle-color: $psv-progressbar-handle-color !default;
+
+$psv-video-bigbutton-size: (portrait: 20vw, landscape: 10vw) !default;
+$psv-video-bigbutton-color: $psv-buttons-color !default;
+
+.psv-video {
+  &-progressbar {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: $psv-progressbar-container;
+    cursor: pointer;
+    z-index: $psv-navbar-zindex - 1;
+
+    @at-root .psv--has-navbar & {
+      bottom: $psv-navbar-height;
+    }
+
+    & > * {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: $psv-progressbar-height;
+      transition: height .2s linear;
+    }
+
+    &:hover > * {
+      height: $psv-progressbar-height-active;
+    }
+
+    &__progress {
+      background-color: $psv-progressbar-progress-color;
+    }
+
+    &__buffer {
+      background-color: $psv-progressbar-buffer-color;
+    }
+
+    &__handle {
+      display: none;
+      height: $psv-progressbar-handle-size !important;
+      width: $psv-progressbar-handle-size;
+      border-radius: 50%;
+      margin-bottom: #{- ($psv-progressbar-handle-size - $psv-progressbar-height-active) * .5};
+      margin-left: #{- $psv-progressbar-handle-size * .5};
+      background: $psv-progressbar-handle-color;
+    }
+  }
+
+  &-time {
+    flex: 0 0 auto;
+
+    .psv-caption-content {
+      min-width: 6em;
+      text-align: center;
+    }
+  }
+
+  &-volume {
+    &__container {
+      position: absolute;
+      left: 0;
+      bottom: $psv-navbar-height;
+      padding: $psv-buttons-height 0;
+      width: $psv-navbar-height;
+      height: 0;
+      opacity: 0;
+      background: $psv-navbar-background;
+      transition: opacity .2s linear, height .3s step-end;
+    }
+
+    &__range {
+      position: relative;
+      height: $psv-volume-height;
+    }
+
+    &__progress,
+    &__track {
+      position: absolute;
+      bottom: 0;
+      left: #{($psv-navbar-height - $psv-volume-width) * .5};
+      width: $psv-volume-width;
+      background: $psv-volume-bar-color;
+    }
+
+    &__track {
+      height: 100%;
+      background: $psv-volume-track-color;
+    }
+
+    &__handle {
+      position: absolute;
+      left: #{($psv-navbar-height - $psv-volume-width) * .5};
+      height: $psv-volume-handle-size;
+      width: $psv-volume-handle-size;
+      border-radius: 50%;
+      margin-left: #{- ($psv-volume-handle-size - $psv-volume-width) * .5};
+      margin-bottom: #{- $psv-volume-handle-size * .5};
+      background: $psv-volume-handle-color;
+    }
+  }
+
+  &-volume-button {
+    position: relative;
+
+    &:hover .psv-video-volume__container {
+      height: $psv-volume-height;
+      opacity: 1;
+      transition-timing-function: linear, step-start;
+      transition-delay: .3s;
+    }
+
+    &--0 .psv-button-svg {
+      #lvl1,
+      #lvl2,
+      #lvl3 {
+        fill: none;
+      }
+    }
+
+    &--1 .psv-button-svg {
+      #lvl0,
+      #lvl2,
+      #lvl3 {
+        fill: none;
+      }
+    }
+
+    &--2 .psv-button-svg {
+      #lvl0,
+      #lvl3 {
+        fill: none;
+      }
+    }
+
+    &--3 .psv-button-svg {
+      #lvl0 {
+        fill: none;
+      }
+    }
+  }
+
+  &-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: $psv-overlay-zindex;
+    pointer-events: none;
+  }
+
+  &-bigbutton {
+    display: block;
+    border: none;
+    background: none;
+    padding: 0;
+    color: $psv-video-bigbutton-color;
+    pointer-events: auto;
+    cursor: pointer;
+    opacity: 0;
+    width: 0;
+    transition: opacity .2s linear, width .3s step-end;
+
+    &--pause {
+      width: map.get($psv-video-bigbutton-size, portrait);
+      opacity: 1;
+      transition-timing-function: linear, step-start;
+
+      @media (orientation: landscape) {
+        width: map.get($psv-video-bigbutton-size, landscape);
+      }
+    }
+
+    svg {
+      width: 100%;
+    }
+  }
+}

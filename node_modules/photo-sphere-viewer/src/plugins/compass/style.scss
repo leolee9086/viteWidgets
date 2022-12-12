@@ -1,0 +1,58 @@
+@import '../../styles/vars';
+
+$psv-compass-margin: 10px !default;
+
+.psv-compass {
+  position: absolute;
+  margin: $psv-compass-margin;
+  z-index: $psv-compass-zindex;
+
+  @at-root .psv--has-navbar & {
+    margin-bottom: calc(#{$psv-navbar-height} + #{$psv-compass-margin});
+  }
+
+  canvas,
+  svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  &--top-left,
+  &--top-center,
+  &--top-right {
+    top: 0;
+  }
+
+  &--center-left,
+  &--center-center,
+  &--center-right {
+    top: 50%;
+  }
+
+  &--bottom-left,
+  &--bottom-center,
+  &--bottom-right {
+    bottom: 0;
+  }
+
+  &--top-left,
+  &--center-left,
+  &--bottom-left {
+    left: 0;
+  }
+
+  &--top-center,
+  &--center-center,
+  &--bottom-center {
+    left: 50%;
+  }
+
+  &--top-right,
+  &--right-right,
+  &--bottom-right {
+    right: 0;
+  }
+}

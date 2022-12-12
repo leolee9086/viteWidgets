@@ -1,5 +1,8 @@
 {
   "dependencies": {
+    "body-parser": "^1.20.1",
+    "express": "^4.18.2",
+    "photo-sphere-viewer": "^4.8.0",
     "vue": "^3.2.45",
     "vue3-moveable": "^0.16.0"
   }

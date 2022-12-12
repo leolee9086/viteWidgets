@@ -1,0 +1,24 @@
+.psv-virtual-tour {
+  &__marker {
+    svg {
+      filter: drop-shadow(0 10px 5px rgba(0, 0, 0, .8));
+      transform: perspective(100px) rotate3d(1, 0, 0, 0deg);
+      transform-origin: bottom center;
+      transition: .2s all ease-in-out;
+    }
+
+    &:hover {
+      svg {
+        filter: drop-shadow(0 5px 3px rgba(0, 0, 0, 1));
+        transform: perspective(100px) rotate3d(1, 0, 0, 10deg);
+      }
+    }
+  }
+
+  &__menu {
+    .psv-panel-menu-item-icon {
+      width: 60px;
+      height: 60px;
+    }
+  }
+}

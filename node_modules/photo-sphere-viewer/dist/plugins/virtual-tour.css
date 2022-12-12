@@ -1,0 +1,27 @@
+/*!
+ * Photo Sphere Viewer 4.8.0
+ * @copyright 2014-2015 Jérémy Heleine
+ * @copyright 2015-2022 Damien "Mistic" Sorel
+ * @licence MIT (https://opensource.org/licenses/MIT)
+ */
+.psv-virtual-tour__marker svg {
+  -webkit-filter: drop-shadow(0 10px 5px rgba(0, 0, 0, 0.8));
+          filter: drop-shadow(0 10px 5px rgba(0, 0, 0, 0.8));
+  -webkit-transform: perspective(100px) rotate3d(1, 0, 0, 0deg);
+          transform: perspective(100px) rotate3d(1, 0, 0, 0deg);
+  -webkit-transform-origin: bottom center;
+          transform-origin: bottom center;
+  -webkit-transition: 0.2s all ease-in-out;
+  transition: 0.2s all ease-in-out;
+}
+.psv-virtual-tour__marker:hover svg {
+  -webkit-filter: drop-shadow(0 5px 3px rgb(0, 0, 0));
+          filter: drop-shadow(0 5px 3px rgb(0, 0, 0));
+  -webkit-transform: perspective(100px) rotate3d(1, 0, 0, 10deg);
+          transform: perspective(100px) rotate3d(1, 0, 0, 10deg);
+}
+.psv-virtual-tour__menu .psv-panel-menu-item-icon {
+  width: 60px;
+  height: 60px;
+}
+/*# sourceMappingURL=virtual-tour.css.map */

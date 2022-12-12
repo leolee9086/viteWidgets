@@ -10,6 +10,7 @@ import DragableCard from './components/DragableCard.vue';
 import {ref} from 'vue'
 import {块列表} from './data/index.js' 
 //这里是在控制卡片状态
+console.log(块列表)
 let 当前激活卡片序号 = ref(null)
 //这里是获取数据,已经挪出去了
 </script>

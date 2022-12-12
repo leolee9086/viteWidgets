@@ -1,0 +1,42 @@
+/*!
+ * Photo Sphere Viewer 4.8.0
+ * @copyright 2014-2015 Jérémy Heleine
+ * @copyright 2015-2022 Damien "Mistic" Sorel
+ * @licence MIT (https://opensource.org/licenses/MIT)
+ */
+.psv-compass {
+  position: absolute;
+  margin: 10px;
+  z-index: 40;
+}
+.psv--has-navbar .psv-compass {
+  margin-bottom: calc(40px + 10px);
+}
+
+.psv-compass canvas,
+.psv-compass svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.psv-compass--top-left, .psv-compass--top-center, .psv-compass--top-right {
+  top: 0;
+}
+.psv-compass--center-left, .psv-compass--center-center, .psv-compass--center-right {
+  top: 50%;
+}
+.psv-compass--bottom-left, .psv-compass--bottom-center, .psv-compass--bottom-right {
+  bottom: 0;
+}
+.psv-compass--top-left, .psv-compass--center-left, .psv-compass--bottom-left {
+  left: 0;
+}
+.psv-compass--top-center, .psv-compass--center-center, .psv-compass--bottom-center {
+  left: 50%;
+}
+.psv-compass--top-right, .psv-compass--right-right, .psv-compass--bottom-right {
+  right: 0;
+}
+/*# sourceMappingURL=compass.css.map */
